@@ -1,17 +1,23 @@
-// Fetch the server status from an API (replace with your actual server IP and API URL)
-fetch('https://api.minetools.eu/ping/your.server.ip/25565')
+// Fetch the server status from the mcapi.us API
+fetch('https://mcapi.us/server/status?ip=these-register.gl.joinmc.link&port=25565') // Replace with your server's IP and port
     .then(response => response.json())
     .then(data => {
         const playersOnline = document.getElementById('players-online');
-        if (data.players) {
-            playersOnline.textContent = data.players.online;
+        const serverStatus = document.getElementById('server-status-message');
+        
+        // Check if the server is online
+        if (data.online) {
+            serverStatus.textContent = "Server is Online!";
+            playersOnline.textContent = `${data.players.now} players online`; // Show current players
         } else {
-            playersOnline.textContent = "Server offline";
+            serverStatus.textContent = "Server is Offline!";
+            playersOnline.textContent = "";
         }
     })
     .catch(error => {
         console.log('Error fetching server status:', error);
-        document.getElementById('players-online').textContent = "Error loading";
+        document.getElementById('server-status-message').textContent = "Error loading status";
+        document.getElementById('players-online').textContent = "";
     });
 
     // Sample event data
