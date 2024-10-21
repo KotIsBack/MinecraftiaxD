@@ -1,0 +1,368 @@
+/* Global Styles */
+body {
+    background-color: #b3e6b3;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Flexbox wrapper for the page */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; /* Reduced padding for mobile */
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    background-image: url('wood_texture.png');
+    padding: 10px; /* Reduced padding for mobile */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 8px; /* Reduced padding */
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Main Block Section */
+.block {
+    background-image: url('grass_block_texture.png');
+    padding: 20px;
+    margin: 10px; /* Reduced margin for mobile */
+    width: 80%;
+    max-width: 300px;
+    border: 5px solid #444;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: gold;
+}
+
+/* Minecraft Block Breaking */
+.block-container {
+    display: inline-block;
+    margin: 20px;
+}
+
+.minecraft-block {
+    background-image: url('assets/block_breaking_sprite.png');
+    width: 100px;
+    height: 100px;
+    background-size: 500px 100px;
+    cursor: pointer;
+    animation: breakBlock 1s steps(5, end);
+    animation-play-state: paused;
+}
+
+.minecraft-block:active {
+    animation-play-state: running;
+}
+
+/* Flexbox for Server Status */
+#server-status {
+    background: url('diamond_block.png');
+    padding: 20px;
+    border: 3px solid #333;
+    width: 80%;
+    max-width: 300px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Footer */
+footer {
+    background-color: #444;
+    color: white;
+    padding: 15px; /* Reduced padding */
+    text-align: center;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Calendar Styles */
+.calendar {
+    background: url('diamond_block.png');
+    padding: 20px;
+    border: 3px solid #333;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.calendar-header {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: gold;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for days of the week */
+    gap: 10px;
+    text-align: center;
+}
+
+.day {
+    font-weight: bold;
+    color: #fff;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.date {
+    background-color: #b3e6b3;
+    padding: 20px;
+    border: 2px solid #444;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.date:hover {
+    background-color: #9fc89f;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Design for Mobile */
+@media only screen and (max-width: 768px) {
+    /* Navbar - stack links on mobile */
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .navbar a {
+        font-size: 1rem; /* Reduce font size */
+        padding: 8px;
+    }
+
+    /* Main Block Section - responsive block */
+    .block {
+        width: 100%;
+        margin: 10px;
+    }
+
+    /* Minecraft Block - responsive block */
+    .minecraft-block {
+        width: 50px;
+        height: 50px;
+        background-size: 250px 50px; /* Adjust for smaller size */
+    }
+
+    /* Adjust server status */
+    #server-status {
+        width: 100%;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    /* Adjust calendar for mobile */
+    .calendar-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on mobile */
+    }
+
+    .date {
+        padding: 15px; /* Adjust for mobile */
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+
+    /* Modal adjustments */
+    .modal-content {
+        width: 90%; /* Make modal wider on smaller screens */
+        margin: 5% auto; /* Reduce margin for mobile */
+    }
+
+    /* Footer adjustments */
+    footer {
+        padding: 15px;
+    }
+}
+
+.spooky {
+    background-image: url('spooky.jpeg'); /* Add your spooky texture image here */
+    background-size: cover; /* Ensure the image covers the entire square */
+    color: orange; /* Change the text color for better visibility */
+    border: 2px solid #ff6600; /* Spooky border color */
+    animation: pulse 1.5s infinite; /* Optional pulse animation */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Add the CSS animation for the footer text */
+@keyframes colorCycle {
+    0% { color: #4CAF50; }  /* Green */
+    25% { color: #FFD700; }  /* Yellow */
+    50% { color: #FF4500; }  /* Orange */
+    75% { color: #00BFFF; }  /* Light Blue */
+    100% { color: #4CAF50; } /* Green again */
+}
+
+footer p {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    margin: 20px 0;
+    animation: colorCycle 3s infinite;  /* Infinite color change every 3 seconds */
+    letter-spacing: 1px;  /* Space out the letters for a retro effect */
+}
+
+/* Default animation and styles for desktop */
+#animated-text span {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 1rem;  /* Default font size for larger screens */
+    text-align: center;
+    display: inline-block;
+    opacity: 0; /* Initially hide all letters */
+    animation: popUp 0.5s forwards; /* Define the pop-up animation */
+}
+
+@keyframes popUp {
+    0% { 
+        opacity: 0; 
+        transform: translateY(10px); /* Start with a slight drop */
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); /* Pop up into place */
+    }
+}
+
+/* Delay for each letter to pop in sequentially */
+#animated-text span:nth-child(1) { animation-delay: 0s; }
+#animated-text span:nth-child(2) { animation-delay: 0.1s; }
+#animated-text span:nth-child(3) { animation-delay: 0.2s; }
+#animated-text span:nth-child(4) { animation-delay: 0.3s; }
+#animated-text span:nth-child(5) { animation-delay: 0.4s; }
+#animated-text span:nth-child(6) { animation-delay: 0.5s; }
+#animated-text span:nth-child(7) { animation-delay: 0.6s; }
+#animated-text span:nth-child(8) { animation-delay: 0.7s; }
+#animated-text span:nth-child(9) { animation-delay: 0.8s; }
+#animated-text span:nth-child(10) { animation-delay: 0.9s; }
+#animated-text span:nth-child(11) { animation-delay: 1.0s; }
+#animated-text span:nth-child(12) { animation-delay: 1.1s; }
+#animated-text span:nth-child(13) { animation-delay: 1.2s; }
+#animated-text span:nth-child(14) { animation-delay: 1.3s; }
+#animated-text span:nth-child(15) { animation-delay: 1.4s; }
+#animated-text span:nth-child(16) { animation-delay: 1.5s; }
+#animated-text span:nth-child(17) { animation-delay: 1.6s; }
+/* ... keep the delays up to the last span ... */
+#animated-text span:nth-child(24) { animation-delay: 2.3s; }
+
+/* Styling for mobile */
+@media screen and (max-width: 600px) {
+    #animated-text span {
+        font-size: 0.7rem;  /* Smaller font size for mobile */
+        letter-spacing: 0.05rem;  /* Decrease spacing between letters */
+        animation: popUp 0.3s forwards; /* Slightly faster animation on mobile */
+    }
+
+    /* Adjust animation delay to make it faster on mobile */
+    #animated-text span:nth-child(1) { animation-delay: 0s; }
+    #animated-text span:nth-child(2) { animation-delay: 0.05s; }
+    #animated-text span:nth-child(3) { animation-delay: 0.1s; }
+    /* ... keep the adjusted delays for mobile ... */
+    #animated-text span:nth-child(24) { animation-delay: 1.2s; }
+}
+
+/* Shop Items Styling */
+.shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+.shop-item {
+    background-color: #3e7320; /* Minecraft-style green */
+    border: 3px solid #2b5111;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.shop-item img {
+    width: 80px;
+    height: 80px;
+}
+
+.shop-item:hover {
+    transform: scale(1.1);
+}
+
+.shop-item h3 {
+    color: #0fffff; /* Diamond-like blue */
+    font-size: 1.2rem;
+}
+
+.shop-item p {
+    font-size: 0.9rem;
+    color: #fff;
+}
